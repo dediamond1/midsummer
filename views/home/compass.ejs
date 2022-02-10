@@ -1,0 +1,30 @@
+<%-include('../includes/header.ejs')%>
+
+<h1 class="text-3xl m-10 ">Vilka värderstreck kommmer dina solceller placeras i?</h1>
+<h1 class="text-xl m-10 ">klicka på kompassen. t.ex (N)</h1>
+<div class="flex justify-center relative items-center h-96 w-96 rounded-full m-5 border-gray-500 border-4 bg-gray-100">
+
+    <div class="h-60 w-1 rounded bg-gray-500 transform translate-x-1/2"></div>
+    <div class="h-60 w-1 rounded bg-gray-500 rotate-90 transform -translate-x-1/2 "></div>
+    <div class="h-60 w-1 rounded bg-gray-200 rotate-45 transform -translate-x-1/2 "></div>
+    <div class="h-60 w-1 rounded bg-gray-200 -rotate-45 transform -translate-x-1/2 "></div>
+    <a href="/compass/n" class="absolute top-5 z-10 text-2xl font-bold transform -translate-x-1/2 ">N</a>
+    <a href="/compass/no" class="absolute top-20 right-20 z-10 text-lg font-bold">NO</a>
+    <a href="/compass/o" class="absolute right-10 top-1/2 transform -translate-y-1/2 text-2xl font-bold">O</a>
+    <a href="/compass/v" class="absolute left-10 top-1/2 text-lg font-bold transform -translate-y-1/2">V</a>
+    <a href="/compass/nv" class="absolute left-20 top-20 text-lg font-bold">NV</a>
+    <a href="/compass/so" class="absolute bottom-16 right-20 text-lg font-bold">S0</a>
+    <a href="/compass/sv" class="absolute bottom-16 left-20 text-lg font-bold">SV</a>
+    <a href="/compass/s" class="absolute bottom-5 transform -translate-x-1/2 text-xl font-bold">S</a>
+</div>
+
+
+
+
+<%-include('../includes/help.ejs')%>
+<div class="md:p-20 p-5 bg-gray-300 mt-20 bottom-0 mx-2">
+    <%-include('../includes/newsletter.ejs')%>
+        <%-include('../includes/bottomNav.ejs')%>
+</div>
+
+<%-include('../includes/footer.ejs')%>

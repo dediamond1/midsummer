@@ -1,0 +1,59 @@
+<%-include('../includes/header.ejs')%>
+
+<h1 class="text-3xl m-10 ">Vilken sorts solcellstak vill du installera?</h1>
+
+<form action="/products" method="post" class="p-10">
+    <div class="flex flex-row space-x-10">
+        
+        <div class="p-5 w-96 bg-gray-300 rounded-xl">
+            <div class="flex items-center space-x-5 my-2">
+                <input type="radio" class="h-8 w-8" name="tak" value="wave" id="first">
+                <input type="hidden" name="_csrf" value="<%= csrfToken%>">
+                <label for="first" class="text-xl">WAVE</label>
+            </div>
+            <div class="flex justify-between my-4">
+                <p class="text-xl">WAVE - för takpannor</p>
+                <button class="underline text-xl text-green-600">Info</button>
+            </div>
+            <img src="/images/house3.png" alt="house picture" width="100%">
+        </div>
+        <div class="p-5 w-96 bg-gray-300 rounded-xl">
+            <div class="flex items-center space-x-5 my-2">
+                <input type="radio" class="h-8 w-8" name="slim" value="Kvadratiskt" id="second">
+                <label for="second" class="text-xl">SLIM</label>
+            </div>
+            <div class="flex justify-between my-4">
+                <p class="text-xl">SLIM - för plåttak</p>
+                <button class="underline text-xl text-green-600">Info</button>
+            </div>
+            <img src="/images/house3.png" alt="house picture" width="100%">
+        </div>
+        <div class="p-5 w-96 bg-gray-300 rounded-xl">
+            <div class="flex items-center space-x-5 my-2">
+                <input type="radio" class="h-8 w-8" name="tak" value="bold" id="third">
+                <label for="third" class="text-xl">BOLD</label>
+            </div>
+            <div class="flex justify-between my-4">
+                <p class="text-xl">BOLD - för papptak</p>
+                <button class="underline text-xl text-green-600">Info</button>
+            </div>
+            <img src="/images/house3.png" alt="house picture" width="100%">
+        </div>
+    </div>
+
+    <div class="flex flex-row space-x-5 mt-10">
+        <button class="px-7 py-4 rounded-lg bg-green-600 text-gray-50" type="submit">NÄSTA</button>
+        <button class="px-7 py-4 rounded-lg bg-green-600 text-gray-50" type="button">HJÄLP</button>
+    </div>
+</form>
+
+
+
+
+<%-include('../includes/help.ejs')%>
+<div class="md:p-20 p-5 bg-gray-300 mt-20 bottom-0 mx-2">
+    <%-include('../includes/newsletter.ejs')%>
+        <%-include('../includes/bottomNav.ejs')%>
+</div>
+
+<%-include('../includes/footer.ejs')%>

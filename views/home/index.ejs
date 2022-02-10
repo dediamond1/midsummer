@@ -1,0 +1,109 @@
+<%- include('../includes/header.ejs')%>
+
+
+  <div class="md:p-10 h-2/5">
+    <div class="md:mt-24 mt-4 mb-3 px-3 search">
+      <h1 class="font-semibold text-2xl ">Var ligger ditt hus?</h1>
+    </div>
+    <div class="ml-4 mb-3 flex search">
+      <input type="text" id="address" class="py-2 rounded px-3 border-blue-300 border-2 w-2/3"
+        placeholder="Address t.ex Öland gatan 23A" />
+      <button class="py-4 px-10 capitalize bg-green-600 text-gray-100 rounded ml-1" type="button" id="go"
+        onclick="gothere();">
+        OK
+      </button>
+    </div>
+    <div class="mb-2 house">
+      <h1 class=" text-center md:text-3xl py-2 px-4 title font-poppins">Är det ditt hus på kartan?</h1>
+      <p><%= err%></p>
+    </div>
+
+    <div class="calc">
+      <div class="md:flex space-x-5 px-5">
+        <div class="flex-auto h-96 relative" id="map"></div>
+        <div>
+
+          <div class="hidden marker space-x-2 ">
+            <button class="
+                    border-purple-500 border-2
+                    text-gray-800
+                    hover:bg-blue-50
+                    px-5
+                    py-2
+                    rounded
+                    text
+                    outline-none
+                  " id="measure" onclick="measure()">
+              Measure
+            </button>
+            <button class="
+                    py-3
+                    px-5
+                    rounded
+                    flex
+                    items-center
+                    text-red-400
+                    hover:bg-red-50
+                    border-2 border-red-400
+                  " type="button" id="end" onclick="clearMeasure()">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400 mr-1" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+              Clear
+            </button>
+          </div>
+          <div class="hidden side">
+            <form action="/roof-info" method="post">
+              <div class="my-2">
+                <label for="measured-area" class="block mb-2 font-bold">Uppmätt takområde</label>
+                <input type="text" id="area" name="area" class="border-2 border-blue-300 rounded py-2 px-4" placeholder="0" />
+                <input type="hidden" required name="_csrf" value="<%= csrfToken %>">
+                <span class="bg-gray-600 py-3 px-5 rounded-r text-white uppercase">sqm</span>
+              </div>
+              <button type="submit" class="rounded nextBtn  bg-green-500 py-4 px-7 uppercase text-white">NÄSTA</button>
+
+            </form>
+            <!-- <div class="my-2">
+              <label class="font-bold block mb-2" for="efficiency">Paneleffektivitet</label>
+              <input type="text" id="efficiency" class="border-2 border-blue-300 rounded py-2 px-4" value="0.17"
+                placeholder="module efficiency" />
+            </div> -->
+            <!-- <div>
+              <label for="insol" class="block font-bold mb-2">Genomsnittlig insolation</label>
+              <input type="text" id="insol" class="border-2 border-blue-300 rounded py-2 px-4" value="4.284"
+                placeholder="average insolation" />
+              <span class="bg-gray-400 py-3 rounded-r px-3">kWh/sqm/day</span>
+            </div> -->
+            <!-- <div class="my-2">
+              <label class="block font-bold mb-2" for="performance">Performance ratio</label>
+              <input type="text" style="text-align: right" id="performance"
+                class="border-2 border-blue-300 rounded py-2 px-4" value="0.85"
+                placeholder="system performance ratio" />
+            </div> -->
+          </div> 
+          <!-- <div class="my-2 hidden side">
+            <label for="solar" class="block mb-2 font-bold">Electricity generated</label>
+            <input type="hidden" id="solar" class="border-2 border-blue-300 rounded py-2 px-4" placeholder="0" readonly />
+            <span class="bg-gray-400 py-3 rounded-r px-3">MWh/year</span>
+          </div> -->
+
+
+        </div>
+      </div>
+      <div class="pl-5 py-3 my-3 space-x-2">
+        <button class="rounded yes bg-green-500 py-4 px-7 uppercase text-white">JA</button>
+        <button class="rounded no bg-green-500 py-4 help px-7 uppercase text-white">NEJ</button>
+      </div>
+    </div>
+
+
+
+    <%-include('../includes/help.ejs')%>
+      <div class="md:p-20 p-5 bg-gray-300 mt-20 bottom-0 mx-2">
+        <%-include('../includes/newsletter.ejs')%>
+          <%-include('../includes/bottomNav.ejs')%>
+      </div>
+
+      <%-include('../includes/footer.ejs')%>

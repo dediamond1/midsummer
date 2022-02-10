@@ -1,0 +1,46 @@
+<nav class="py-6 bg-gray-100 flex fle-col md:flex-row relative justify-around items-center">
+    <div class="logo">
+        <img class="h-14 ml-4" src="https://midsummer.se/wp-content/uploads/2020/02/MidSumLogo.svg" alt="logo svg" />
+    </div>
+    <div>
+        <button class=" menu_btn flex md:hidden p-2 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+        </button>
+    </div>
+    <ul class=" space-x-5 hidden md:flex">
+        <li class="p-2"><a class="p-2 hover:text-gray-600 text-lg font-poppins text-gray-50 md:text-gray-700" href="/admin">Hem</a></li>
+        <% if(isLogged) {%>
+            <li class="p-2"><a class="p-2 hover:text-gray-600 text-lg font-poppins text-gray-50 md:text-gray-700" href="#">Utträkning</a></li>
+            <li class="p-2"><a class="hover:text-gray-600 text-lg font-poppins text-gray-50 md:text-gray-700 rounded bg-yellow-300 py-3 px-4" href="/admin/register">Skapa konto</a></li>
+            <%}%>
+        <% if(!isLogged) {%>
+            <li class="p-2"><a class="hover:text-gray-600 text-lg font-poppins text-gray-50 md:text-gray-700 rounded bg-yellow-300 py-3 px-4" href="/admin/login">login</a></li>
+            <%}%>
+        <% if(isLogged) {%>
+            <li class="p-2"><a class="hover:text-gray-600 text-lg font-poppins text-gray-50 md:text-gray-700 rounded bg-yellow-300 py-3 px-4" href="/admin/logout">Logout</a></li>
+            <%}%>
+
+    </ul>
+    <ul class="absolute mobile_menu md:hidden flex w-80 transform -translate-x-full left-0 transition-all duration-200 flex-col top-full bg-gray-100 h-screen">
+        <li class="p-2 w-full my-1 block"><a class="py-3 hover:bg-gray-300 menu_link rounded block hover:text-gray-700 transition duration-300 px-2 text-lg font-poppins text-gray-800 md:text-gray-700" href="#">Hem</a></li>
+        <% if(isLogged) {%>
+            <li class="p-2 w-full my-1 block"><a class="py-3 hover:bg-gray-300 menu_link rounded block hover:text-gray-700 transition duration-300 px-2 text-lg font-poppins text-gray-800 md:text-gray-700" href="#">Utträkning</a></li>
+            <%}%>
+        <div class="block h-0.5 bg-gray-300 my-4 mx-4"></div>
+        <% if(isLogged) {%>
+            <li class="p-1 w-full my-1 block"><a class="py-3 hover:bg-yellow-300 menu_link block hover:text-gray-700 transition duration-300 px-2 text-center mx-2 rounded bg-yellow-400 text-lg font-poppins text-gray-800 md:text-gray-700" href="/admin/register">Skapa konto</a></li>
+            <%}%>
+        <li class="p-1 w-full my-1 block"><a class="py-3 hover:bg-yellow-300 menu_link block hover:text-gray-700 transition duration-300 px-2 text-center mx-2 rounded bg-yellow-400 text-lg font-poppins text-gray-800 md:text-gray-700" href="/admin/login">Login</a></li>
+        <% if(isLogged) {%>
+            <li class="p-1 w-full my-1 block"><a class="py-3 hover:bg-gray-300 menu_link flex justify-between items-center hover:text-gray-700 transition duration-300 px-2 text-center rounded text-lg font-poppins text-gray-800 md:text-gray-700" href="/admin/logout">
+                <span>Logout</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
+            </a></li>
+            <%}%>
+
+    </ul>
+</nav> 

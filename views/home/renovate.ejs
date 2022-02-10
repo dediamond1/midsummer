@@ -1,0 +1,40 @@
+<%-include('../includes/header.ejs')%>
+
+<div class="p-10">
+    <div class="py-2 mb-16">
+        <h1 class="text-2xl font-poppins">Vill du renovera ditt nuvarande tak eller <br> installera solpanelerna på ditt nuvarande tak?</h1>
+    </div>
+    
+    <form action="/renovate" method="post">
+        
+        <div class="flex flex-row items-center p-5">
+            <input type="radio" id="renovate" name="renavate&install" value="plåttak" class="h-8 w-8">
+            <label for="renovate" class="text-xl ml-5">Jag vill renovera mitt tak i samband med installationen</label>
+            <input type="hidden" name="_csrf" value="<%= csrfToken%>">
+
+        </div>
+        <div class="flex flex-row items-center p-5">
+            <input type="radio" name="tak" id="install" value="installation" class="h-8 w-8">
+            <label for="install" class="text-xl ml-5">Jag vill endaste installera solpaneler</label>
+        </div>
+       
+        
+        <div class="flex flex-row space-x-10">
+            <button type="submit" class="rounded mt-10 bg-green-500 py-4 help px-7 uppercase text-white">NÄSTA</button>
+            <button type="button" class="rounded mt-10 bg-green-500 py-4 help px-7 uppercase text-white">HJÄLP</button>
+        </div>
+    </form>
+</div>
+
+    
+
+
+
+
+    <%-include('../includes/help.ejs')%>
+        <div class="md:p-20 p-5 bg-gray-300 mt-20 bottom-0 mx-2">
+            <%-include('../includes/newsletter.ejs')%>
+                <%-include('../includes/bottomNav.ejs')%>
+        </div>
+
+        <%-include('../includes/footer.ejs')%>

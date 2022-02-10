@@ -1,0 +1,56 @@
+<%-include('../includes/header.ejs')%>
+
+<div class="p-10">
+    <div class="py-2 mt-7">
+        <h1 class="text-2xl font-poppins">Hur många av följande finns på ytan där solcellerna kommer installeras?</h1>
+    </div>
+    
+    <form action="/takinfo" method="post">
+        
+        <div class="flex flex-row items-center p-5 space-x-10">
+            <label for="takfönster" class="text-xl ml-5">Takfönster</label>
+            <input type="number" id="takfönster" name="takfönster" value="30" class=" h-8 w-20 rounded-lg bg-gray-400 pl-4">
+        </div>
+        <div class="flex flex-row items-center p-5 space-x-10">
+            <label for="skorstenar" class="text-xl ml-5">Skorstenar</label>
+            <input type="number" name="skorstenar" id="skorstenar" value="0" class=" h-8 w-20 rounded-lg bg-gray-400 pl-4">
+        </div>
+        <div class="flex flex-row items-center p-5 space-x-10">
+            <label for="ventilationer" class="text-xl ml-5">Ventilationer</label>
+            <input type="number" name="ventilationer" id="ventilationer" value="0" class=" h-8 w-20 rounded-lg bg-gray-400 pl-4">
+        </div>
+        <div class="flex flex-row items-center p-5 space-x-10">
+            <label for="takstegar" class="text-xl ml-5">Takstegar</label>
+            <input type="number" id="takstegar" name="takstegar" value="0" class=" h-8 w-20 rounded-lg bg-gray-400 pl-4">
+            <input type="hidden" name="_csrf" value="<%= csrfToken%>">
+
+        </div>
+        <div class="flex flex-row items-center p-5 space-x-10">
+            <label for="skorstensplattformar" class="text-xl ml-5">skorstensplattformar</label>
+            <input type="number" id="skorstensplattformar" name="skorstensplattformar" value="0" class=" h-8 w-20 rounded-lg bg-gray-400 pl-4">
+        </div>
+        <div class="flex flex-row items-center p-5 space-x-10">
+            <label for="gångbryggor" class="text-xl ml-5">Gångbryggor</label>
+            <input type="number" id="gångbryggor" name="gångbryggor" value="180" class=" h-8 w-20 rounded-lg bg-gray-400 pl-4">
+        </div>
+        <div class="flex flex-row items-center p-5 space-x-10">
+            <label for="kupor" class="text-xl ml-5">Kupor</label>
+            <input type="number" id="kupor" name="kupor" value="0" class=" h-8 w-20 rounded-lg bg-gray-400 pl-4">
+        </div>
+        
+        <div>
+            <button type="submit" class="rounded mt-10 bg-green-500 py-4 help px-7 uppercase text-white">NÄSTA</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+<%-include('../includes/help.ejs')%>
+<div class="md:p-20 p-5 bg-gray-300 mt-20 bottom-0 mx-2">
+    <%-include('../includes/newsletter.ejs')%>
+        <%-include('../includes/bottomNav.ejs')%>
+</div>
+
+<%-include('../includes/footer.ejs')%>
