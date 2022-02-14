@@ -12,6 +12,11 @@ exports.GetHome = (req, res) => {
     })
 }
 
+exports.getContact = (req, res) =>{
+    res.render("home/contact")
+    
+}
+
 exports.getSorts = (req, res, next) => {
     res.render('home/sorts', {
         csrfToken: req.csrfToken()

@@ -16,6 +16,11 @@ const acceptHelp = document.querySelector('.accept')
 const nextBtn = document.querySelector('.nextBtn')
 const form = document.querySelector('form')
 
+menubtn.addEventListener("click", () => {
+  menu.classList.toggle("translate-x-full");
+});
+
+
 yesBtn.addEventListener('click', () => {
   hiddenContent.forEach(content => {
     content.classList.remove('hidden')
@@ -57,9 +62,9 @@ helpBtn.addEventListener('click', () => {
 
 })
 
-menubtn.addEventListener("click", () => {
-  menu.classList.toggle("translate-x-full");
-});
+
+
+
 
 function initMap() {
   calcInputs.classList.add("hidden");
