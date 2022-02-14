@@ -1,4 +1,5 @@
-import { model, Schema } from 'mongoose'
+const mongoose = require('mongoose')
+const { Schema } = mongoose
 
 const formulaConfig = new Schema({
     hourlyRates: {
@@ -79,7 +80,7 @@ const formulaConfig = new Schema({
         17: Number,
         20: Number
     },
-    scaffoldingHeightPerFloow: Number,
+    scaffoldingHeightPerFloor: Number,
     shippingRateWave: Number
 }, {
     collection: 'formulaConfig',
@@ -89,4 +90,4 @@ const formulaConfig = new Schema({
     }
 })
 
-export default model('formulaConfig', formulaConfig)
+module.exports = mongoose.model('formulaConfig', formulaConfig)
