@@ -54,10 +54,12 @@ app.use((error, req, res, next) => {
   next()
 })
 
+const PORT = process.env.PORT || 4000
+const HOST = '0.0.0.0'
 
 mongoose.connect(process.env.MONGO_URI).then(() => {
-  app.listen(process.env.PORT || 4000, () => {
-    console.log("server is running");
+  app.listen(PORT, HOST, () => {
+    console.log(`server is running on http://${HOST}:${PORT}`);
   });
 }).catch(err => console.log(err))
 
