@@ -25,7 +25,11 @@ homeRoutes.post('/houses-options', homeControllers.postHouseOptions)
 homeRoutes.post('/products', homeControllers.postProducts)
 homeRoutes.post('/roof-info', homeControllers.postRoofInfo)
 homeRoutes.post('/takinfo', homeControllers.postTakInfo)
-homeRoutes.post('/floor', homeControllers.postFloor)
+homeRoutes.post(
+    '/floor',
+    body('floor').isInt({min: 1, max: 100}).toInt(),
+    homeControllers.postFloor
+)
 homeRoutes.post(
     '/angles',
     body('angle').isInt({min: 28, max: 50}).toInt(),
