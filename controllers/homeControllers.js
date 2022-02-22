@@ -1,3 +1,5 @@
+const { validationResult } = require('express-validator');
+
 exports.GetHome = (req, res) => {
     let message = req.flash('error');
     if (message.length > 0) {
@@ -46,12 +48,31 @@ exports.getDirection = (req, res) => {
 
 exports.getAngles = (req, res) => {
     res.render('home/angles', {
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
+        angles: [
+            {
+                label: "Under 29",
+                value: 28
+            },
+            {
+                label: "30-34",
+                value: 34
+            },
+            {
+                label: "35-40",
+                value: 40
+            },
+            {
+                label: "Över 40",
+                value: 50
+            }
+        ]
     })
 }
 
 exports.postAngles = (req, res) => {
-    console.log(req.body);
+    const errors = validationResult(req)
+    console.log(errors)
     res.redirect('/sorts')
 }
 
