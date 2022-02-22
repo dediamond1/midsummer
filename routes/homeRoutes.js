@@ -1,6 +1,14 @@
 const { Router } = require('express')
-const { body } = require('express-validator')
+const { body, validationResult } = require('express-validator')
 const homeControllers = require('../controllers/homeControllers')
+
+const errorHandler = (req, res, next) => {
+    const errors = validationResult(req)
+
+    if (errors.isEmpty()) return next()
+
+    return res.status(400).json({ errors: errors.array() })
+}
 
 const homeRoutes = Router()
 
@@ -28,11 +36,13 @@ homeRoutes.post('/takinfo', homeControllers.postTakInfo)
 homeRoutes.post(
     '/floor',
     body('floor').isInt({min: 1, max: 100}).toInt(),
+    errorHandler,
     homeControllers.postFloor
 )
 homeRoutes.post(
     '/angles',
     body('angle').isInt({min: 28, max: 50}).toInt(),
+    errorHandler,
     homeControllers.postAngles
 )
 homeRoutes.post('/renovate', homeControllers.postRenovate)
