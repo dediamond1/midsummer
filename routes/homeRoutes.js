@@ -30,7 +30,7 @@ homeRoutes.post(
     '/roofarea',
     body('area').isInt({min: 1}).toInt(),
     errorHandler,
-    homeControllers.postRoofInfo
+    homeControllers.postRoofArea
 )
 homeRoutes.post('/sorts', homeControllers.postSorts)
 homeRoutes.post('/roofs', homeControllers.postRoofs)

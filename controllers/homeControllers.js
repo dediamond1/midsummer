@@ -25,7 +25,7 @@ exports.postSorts = (req, res) => {
     res.redirect('/roofs')
 }
 
-exports.postRoofInfo = (req, res) => {
+exports.postRoofArea = (req, res) => {
     console.log(req.body.area)
 
     if (req.body.area === 0) {
@@ -71,8 +71,6 @@ exports.getAngles = (req, res) => {
 }
 
 exports.postAngles = (req, res) => {
-    const errors = validationResult(req)
-    console.log(errors)
     res.redirect('/sorts')
 }
 
