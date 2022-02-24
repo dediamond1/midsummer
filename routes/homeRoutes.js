@@ -26,12 +26,17 @@ homeRoutes.get('/takinfo', homeControllers.getTakInfo)
 homeRoutes.get('/floor', homeControllers.getFloor)
 homeRoutes.get('/renovate', homeControllers.getRenovate)
 
+homeRoutes.post(
+    '/roofarea',
+    body('area').isInt({min: 1}).toInt(),
+    errorHandler,
+    homeControllers.postRoofInfo
+)
 homeRoutes.post('/sorts', homeControllers.postSorts)
 homeRoutes.post('/roofs', homeControllers.postRoofs)
 homeRoutes.post('/houses', homeControllers.postHouses)
 homeRoutes.post('/houses-options', homeControllers.postHouseOptions)
 homeRoutes.post('/products', homeControllers.postProducts)
-homeRoutes.post('/roof-info', homeControllers.postRoofInfo)
 homeRoutes.post('/takinfo', homeControllers.postTakInfo)
 homeRoutes.post(
     '/floor',
