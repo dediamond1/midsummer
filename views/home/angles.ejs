@@ -5,7 +5,7 @@
         <h1 class="text-2xl font-poppins">Vilken lutning har ditt tak?</h1>
     </div>
     
-    <form action="/angles" method="post">
+    <form action="/roof-angle" method="post">
         <% angles.forEach(angle => { %>
             <div class="flex flex-row items-center p-5">
                 <input id="angle-<%= angle.value %>" type="radio" name="angle" value="<%= angle.value %>" class="h-8 w-8">

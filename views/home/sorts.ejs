@@ -5,25 +5,25 @@
         <h1 class="text-2xl font-poppins">Vilken sorts tak har du?</h1>
     </div>
     
-    <form action="/sorts" method="post">
+    <form action="/roof-material" method="post">
         
         <div class="flex flex-row items-center p-5">
-            <input type="radio" id="plåttak" name="tak" value="plåttak" class="h-8 w-8">
+            <input type="radio" id="plåttak" name="material" value="tin" class="h-8 w-8">
             <label for="plåttak" class="text-xl ml-5">Plåttak</label>
             <input type="hidden" name="_csrf" value="<%= csrfToken%>">
 
         </div>
         <div class="flex flex-row items-center p-5">
-            <input type="radio" name="tak" id="takpannor" value="takpannor" class="h-8 w-8">
+            <input type="radio" name="material" id="takpannor" value="tiled" class="h-8 w-8">
             <label for="takpannor" class="text-xl ml-5">Takpannor</label>
         </div>
         <div class="flex flex-row items-center p-5">
-            <input type="radio" name="tak" id="papptak" value="papptak" class="h-8 w-8">
+            <input type="radio" name="material" id="papptak" value="felt" class="h-8 w-8">
             <label for="papptak" class="text-xl ml-5">Papptak</label>
         </div>
         <div class="flex flex-row items-center p-5">
-            <input type="radio" id="eterniktak" name="tak" value="eterniktak" class="h-8 w-8">
-            <label for="eterniktak" class="text-xl ml-5">Eterniktak</label>
+            <input type="radio" id="eterniktak" name="material" value="eternit" class="h-8 w-8">
+            <label for="eterniktak" class="text-xl ml-5">Eternittak</label>
         </div>
         <div class="flex flex-row items-center p-5">
             <label for="other" class="text-xl mr-5">Annat typ av tak</label>

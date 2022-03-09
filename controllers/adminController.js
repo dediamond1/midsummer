@@ -212,3 +212,7 @@ exports.GetLogout = (req, res) => {
         res.redirect('/admin/login')
     })
 }
+
+exports.GetFormulaConfig = (req, res) => {
+    res.json({success: false})
+}

@@ -2,29 +2,35 @@
 
 <h1 class="text-3xl m-10 ">Vilket tak ser mest ut som ditt tak?</h1>
 
-<form action="/roofs" method="post" class="p-10">
+<form action="/roof-type" method="post" class="p-10">
     <div class="flex flex-row space-x-10">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
         
         <div class="p-5 w-96 bg-gray-300 rounded-xl">
             <div class="flex items-center space-x-5 my-2">
-                <input type="radio" class="h-8 w-8" name="tak" value="sadeltak" id="first">
+                <input type="radio" class="h-8 w-8" name="tak" value="sadleRoof" id="first">
                 <label for="first" class="text-xl">Sadeltak</label>
-                <input type="hidden" name="_csrf" value="<%= csrfToken%>">
-
             </div>
             <img src="/images/house.png" alt="house picture" width="100%">
         </div>
         <div class="p-5 w-96 bg-gray-300 rounded-xl">
             <div class="flex items-center space-x-5 my-2">
-                <input type="radio" class="h-8 w-8" name="tak" value="plattak" id="second">
-                <label for="second" class="text-xl">Platt tak</label>
+                <input type="radio" class="h-8 w-8" name="tak" value="pentRoof" id="second">
+                <label for="second" class="text-xl">Pulpettak</label>
             </div>
             <img src="/images/house.png" alt="house picture" width="100%">
         </div>
         <div class="p-5 w-96 bg-gray-300 rounded-xl">
             <div class="flex items-center space-x-5 my-2">
-                <input type="radio" class="h-8 w-8" name="tak" value="mansardtak" id="third">
+                <input type="radio" class="h-8 w-8" name="tak" value="mansardRoof" id="third">
                 <label for="third" class="text-xl">Mansardtak</label>
+            </div>
+            <img src="/images/house.png" alt="house picture" width="100%">
+        </div>
+        <div class="p-5 w-96 bg-gray-300 rounded-xl">
+            <div class="flex items-center space-x-5 my-2">
+                <input type="radio" class="h-8 w-8" name="tak" value="hipRoof" id="fourth">
+                <label for="fourth" class="text-xl">Valmat tak</label>
             </div>
             <img src="/images/house.png" alt="house picture" width="100%">
         </div>

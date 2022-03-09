@@ -35,6 +35,7 @@ app.use(flash())
 app.use((req, res, next) => {
   res.locals.csrfToken = req.csrfToken()
   res.locals.isLogged = req.session.isLogged
+  if (!req.session.form) req.session.form = {}
   next()
 })
 app.use(homeRoutes);

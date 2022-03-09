@@ -20,30 +20,31 @@ exports.getSorts = (req, res, next) => {
     })
 }
 
-exports.postSorts = (req, res) => {
-    console.log(req.body);
-    res.redirect('/roofs')
+exports.getDirection = (req, res) => {
+    req.session.form.direction = req.params.direction
+    console.log(req.session.form)
+    res.redirect('/angles')     
+}
+
+exports.postRoofType = (req, res) => {
+    req.session.form.roofType = req.body.type
+    console.log(req.session.form)
+    res.redirect('/roof-material')
 }
 
 exports.postRoofArea = (req, res) => {
-    console.log(req.body.area)
-
     if (req.body.area === 0) {
-         req.flash('error', "Märkera hela ditt")
+         req.flash('error', "Markera hela ditt tak")
          return res.redirect('/')
     }
-    req.session.area = req.body.area
+    req.session.form.area = req.body.area
+    console.log(req.session.form)
     res.redirect('/compass')
     
 }
 
 exports.getCompass = (req, res, next) => {
     res.render('home/compass')
-}
-
-exports.getDirection = (req, res) => {
-    req.session.direction = req.params.id
-    res.redirect('/angles')
 }
 
 exports.getAngles = (req, res) => {
@@ -70,25 +71,28 @@ exports.getAngles = (req, res) => {
     })
 }
 
-exports.postAngles = (req, res) => {
-    res.redirect('/sorts')
+exports.postRoofAngle = (req, res) => {
+    req.session.form.roofAngle = req.body.angle
+    console.log(req.session.form)
+    res.redirect('/roof-type')
 }
 
 
-exports.getInfo = (req, res) => {
+exports.getResult = (req, res) => {
     res.render('home/information', {
         csrfToken: req.csrfToken()
     })
 }
-exports.getRoofs = (req, res) => {
+exports.getRoofMaterial = (req, res) => {
     res.render('home/roofs', {
         csrfToken: req.csrfToken()
     })
 }
 
-exports.postRoofs = (req, res) => {
-    console.log(req.body);
-    res.redirect('/houses')
+exports.postRoofMaterial = (req, res) => {
+    req.session.form.roofMaterial = req.body.material
+    console.log(req.session.form)
+    res.redirect('/house-shape')
 }
 
 
@@ -99,11 +103,6 @@ exports.getHouses = (req, res) => {
     })
 }
 
-exports.postHouses = (req, res) => {
-    console.log(req.body);
-    res.redirect('/houses-options')
-}
-
 exports.getHouseOptions = (req, res) => {
     res.render('home/houseOptions', {
         csrfToken: req.csrfToken()
@@ -111,7 +110,28 @@ exports.getHouseOptions = (req, res) => {
 }
 
 exports.postHouseOptions = (req, res) => {
-    console.log(req.body);
+    const {
+        windowCount,
+        chimneys,
+        ventilationCount,
+        ladderCount,
+        chimneyPlatforms,
+        roofWalkways,
+        dormers
+    } = req.body
+
+    req.session.form = {
+        ...req.session.form,
+        windowCount,
+        chimneys,
+        ventilationCount,
+        ladderCount,
+        chimneyPlatforms,
+        roofWalkways,
+        dormers
+    }
+
+    console.log(req.session)
     res.redirect('/takinfo')
 }
 
@@ -123,7 +143,7 @@ exports.getTakInfo = (req, res) => {
 }
 
 exports.postTakInfo = (req, res) => {
-    console.log(req.body);
+    console.log('-- TAK INFO TBD --');
     res.redirect('/floor')
 }
 
@@ -147,8 +167,9 @@ exports.getFloor = (req, res) => {
     })
 }
 
-exports.postFloor = (req, res) => {
-    console.log(req.body);
+exports.postFloors = (req, res) => {
+    req.session.form.floors = req.body.floors
+    console.log(req.session.form)
     res.redirect('/products')
 }
 
@@ -162,4 +183,13 @@ exports.getRenovate = (req, res) => {
 exports.postRenovate = (req, res) => {
     console.log(req.body);
     res.redirect('/result')
+}
+
+/**
+ * @deprecated House shape irrelevant due to user selecting area.
+ */
+exports.postHouseShape = (req, res) => {
+    req.session.form.houseShape = req.body.shape
+    console.log(req.session.form);
+    res.redirect('/house-options')
 }
