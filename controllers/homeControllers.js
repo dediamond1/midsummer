@@ -34,10 +34,11 @@ exports.postRoofType = (req, res) => {
 
 exports.postRoofArea = (req, res) => {
     if (req.body.area === 0) {
-         req.flash('error', "Markera hela ditt tak")
+         req.flash('error', "Markera den del av taket du vill lägga solpaneler")
          return res.redirect('/')
     }
     req.session.form.area = req.body.area
+    req.session.form.roofSegments = req.body.segments.split(',', 10)
     console.log(req.session.form)
     res.redirect('/compass')
     

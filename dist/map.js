@@ -136,7 +136,7 @@ yesBtn.addEventListener('click', function () {
   hiddenContent.forEach(function (content) {
     content.classList.remove('hidden');
     content.classList.add('block');
-    title.innerHTML = "Markera hela ditt tak";
+    title.innerHTML = "Markera yta för solpaneler";
     marker.classList.remove('hidden');
     marker.classList.add('flex');
     divMap.classList.remove('h-96');

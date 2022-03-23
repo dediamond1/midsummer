@@ -36,6 +36,7 @@ homeRoutes.get('/renovate', homeControllers.getRenovate)
 homeRoutes.post(
     '/roof-area',
     body('area').isInt({min: 1}).toInt(),
+    body('segments').notEmpty(),
     errorHandler,
     homeControllers.postRoofArea
 )

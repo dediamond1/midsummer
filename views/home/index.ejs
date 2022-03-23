@@ -34,7 +34,7 @@
                     text
                     outline-none
                   " id="measure" onclick="measure()">
-              Measure
+              Mät
             </button>
             <button class="
                     py-3
@@ -51,7 +51,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
               </svg>
-              Clear
+              Rensa
             </button>
           </div>
           <div class="hidden side">
@@ -60,6 +60,7 @@
                 <label for="measured-area" class="block mb-2 font-bold">Uppmätt takområde</label>
                 <input type="text" id="area" name="area" class="border-2 border-blue-300 rounded py-2 px-4" placeholder="0" />
                 <input type="hidden" required name="_csrf" value="<%= csrfToken %>">
+                <input type="hidden" id="segments" name="segments" value="">
                 <span class="bg-gray-600 py-3 px-5 rounded-r text-white uppercase">sqm</span>
               </div>
               <button type="submit" class="rounded nextBtn  bg-green-500 py-4 px-7 uppercase text-white">NÄSTA</button>

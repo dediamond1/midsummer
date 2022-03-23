@@ -20,7 +20,7 @@ yesBtn.addEventListener('click', () => {
   hiddenContent.forEach(content => {
     content.classList.remove('hidden')
     content.classList.add('block')
-    title.innerHTML = "Markera hela ditt tak"
+    title.innerHTML = "Markera yta för solpaneler"
     marker.classList.remove('hidden')
     helpBtn.textContent ="hittar inte mitt hus"
     marker.classList.add('flex')
@@ -95,6 +95,10 @@ function initMap() {
     $("#solar").val("0");
   });
   measureTool.addListener("measure_change", (e) => {
+    console.log(e.result)
+    $('#segments').val(e.result.segments.map(segment => {
+      return Math.round(segment.length.value * 100) / 100
+    }).toString())
     if (e.result.area) {
       area = Math.round(e.result.area);
       $("#area").val(area);
