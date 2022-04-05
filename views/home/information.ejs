@@ -7,15 +7,15 @@
         <h1 class="text-2xl ml-10 text-gray-50">Ditt resultat</h1>
         <div class="flex flex-row justify-around mt-6">
             <div class="flex flex-col items-center">
-                <h1 class="text-gray-50 text-xl">200 m2</h1>
-                <h1 class="text-gray-50 text-base my-2">midsummer SLIM</h1>
+                <h1 class="text-gray-50 text-xl"><%= form.area %> m<sup>2</sup></h1>
+                <h1 class="text-gray-50 text-base my-2">Midsummer WAVE</h1>
             </div>
             <div class="flex flex-col items-center">
                 <h1 class="text-gray-50 text-xl">3993 kWh</h1>
                 <h1 class="text-gray-50 text-base my-2">årsproduktion</h1>
             </div>
             <div class="flex flex-col items-center">
-                <h1 class="text-gray-50 text-xl">7,4 kW</h1>
+                <h1 class="text-gray-50 text-xl"><%= Math.round(calc.getEffect()) %> kW</h1>
                 <h1 class="text-gray-50 text-base my-2">installerat effekt</h1>
             </div>
         </div>
@@ -50,21 +50,21 @@
         <div class="p-5 mt-5">
             <h1 class="text-2xl text-gray-50 mb-5">Uppskattat pris</h1>
             <div class="flex flex-row space-x-10 my-3 ml-5">
-                <p class="text-gray-50 text-lg capitalize">originalpris</p>
-                <span class="text-gray-50 text-lg">290 000</span>
+                <p class="text-gray-50 text-lg capitalize">Originalpris</p>
+                <span class="text-gray-50 text-lg"><%= calc.getTotalNetCost().toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") %></span>
             </div>
             <div class="flex flex-row space-x-10 my-3 ml-5 items-center">
-                <p class="text-gray-50 text-lg capitalize">Rotavdrag</p>
-                <span class="text-gray-50 text-lg"> -30 000</span>
+                <p class="text-gray-50 text-lg capitalize">Grönt avdrag</p>
+                <span class="text-gray-50 text-lg"><%= calc.getGreenEnergyDeduction().toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") %></span>
             </div>
             <div class="flex flex-row space-x-10 my-3 ml-5 items-center">
-                <p class="text-gray-50 text-lg capitalize">rabbat</p>
-                <span class="text-gray-50 text-lg"> -19 500</span>
+                <p class="text-gray-50 text-lg capitalize">Frakt</p>
+                <span class="text-gray-50 text-lg"><%= calc.getShipping() %></span>
             </div>
             <div class="w-60 h-1 bg-gray-50 rounded-xl"></div>
             <div class="flex flex-row space-x-10 my-3 ml-5 items-center">
-                <p class="text-xl text-gray-50">ditt pris</p>
-                <span class="text-gray-50 text-xl">240 500</span>
+                <p class="text-xl text-gray-50">Total</p>
+                <span class="text-gray-50 text-xl"><%= calc.getGrandTotal().toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") %></span>
             </div>
         </div>
 

@@ -80,8 +80,14 @@ exports.postRoofAngle = (req, res) => {
 
 
 exports.getResult = (req, res) => {
+    const MidsummerCalculations = require('../lib/MidsummerCalculations.js')
+    const calc = new MidsummerCalculations(req.session.form)
+    console.log(calc)
+    const {csrfToken, session: { form }} = req
     res.render('home/information', {
-        csrfToken: req.csrfToken()
+        csrfToken: csrfToken(),
+        form,
+        calc
     })
 }
 exports.getRoofMaterial = (req, res) => {
